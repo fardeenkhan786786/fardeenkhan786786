@@ -2,4 +2,12 @@
 
 <img src="./assets/hero.svg" width="100%" />
 
+<br>
+
+<img src="./assets/dashboard.svg" width="100%" />
+
+<br>
+
+<img src="./assets/contributions.svg" width="100%" />
+
 </div>
