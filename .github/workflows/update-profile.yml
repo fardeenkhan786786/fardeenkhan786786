@@ -1,0 +1,281 @@
+name: Update GitHub Contribution Matrix
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-contributions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch real GitHub contributions
+        run: |
+          python - <<'PY'
+          import urllib.request
+          import re
+          from datetime import datetime
+
+          USERNAME = "fardeenkhan786786"
+          URL = f"https://github.com/users/{USERNAME}/contributions"
+
+          request = urllib.request.Request(
+              URL,
+              headers={
+                  "User-Agent": "Mozilla/5.0"
+              }
+          )
+
+          html = urllib.request.urlopen(request).read().decode("utf-8")
+
+          pattern = re.compile(
+              r'<td[^>]*data-date="([^"]+)"[^>]*data-level="([0-4])"[^>]*>'
+          )
+
+          matches = pattern.findall(html)
+
+          if not matches:
+              raise SystemExit("Could not find GitHub contribution data.")
+
+          print(f"Found {len(matches)} contribution cells.")
+
+          # Convert to dictionary
+          contributions = {
+              date: int(level)
+              for date, level in matches
+          }
+
+          # Generate futuristic SVG
+          width = 1100
+          height = 390
+
+          cell = 13
+          gap = 5
+          start_x = 55
+          start_y = 70
+
+          colors = {
+              0: "#111827",
+              1: "#123B4A",
+              2: "#075985",
+              3: "#0891B2",
+              4: "#22D3EE"
+          }
+
+          svg = f'''<svg xmlns="http://www.w3.org/2000/svg"
+          width="{width}"
+          height="{height}"
+          viewBox="0 0 {width} {height}">
+
+          <defs>
+
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#050816"/>
+              <stop offset="50%" stop-color="#0B1025"/>
+              <stop offset="100%" stop-color="#12051F"/>
+            </linearGradient>
+
+            <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#22D3EE"/>
+              <stop offset="50%" stop-color="#818CF8"/>
+              <stop offset="100%" stop-color="#F472B6"/>
+            </linearGradient>
+
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+            <style>
+              .mono {{
+                font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+              }}
+            </style>
+
+          </defs>
+
+          <!-- Background -->
+          <rect width="100%" height="100%" rx="24" fill="url(#bg)"/>
+
+          <!-- Border -->
+          <rect x="1" y="1"
+                width="{width-2}"
+                height="{height-2}"
+                rx="24"
+                fill="none"
+                stroke="#24304A"
+                stroke-width="2"/>
+
+          <!-- Header -->
+          <text x="45" y="38"
+                class="mono"
+                font-size="17"
+                font-weight="700"
+                fill="url(#title)">
+            GITHUB // ACTIVITY MATRIX
+          </text>
+
+          <text x="1050" y="38"
+                text-anchor="end"
+                class="mono"
+                font-size="11"
+                fill="#64748B">
+            LIVE DATA
+          </text>
+
+          <!-- Matrix -->
+          '''
+
+          # GitHub calendar = Sunday -> Saturday
+          # Find first Sunday in the displayed data.
+          dates = sorted(contributions.keys())
+
+          first_date = datetime.strptime(dates[0], "%Y-%m-%d").date()
+
+          # Shift to Sunday
+          first_sunday = first_date
+
+          while first_sunday.weekday() != 6:
+              from datetime import timedelta
+              first_sunday -= timedelta(days=1)
+
+          from datetime import timedelta
+
+          for date_string, level in contributions.items():
+
+              date = datetime.strptime(
+                  date_string,
+                  "%Y-%m-%d"
+              ).date()
+
+              days = (date - first_sunday).days
+
+              column = days // 7
+              row = days % 7
+
+              x = start_x + column * (cell + gap)
+              y = start_y + row * (cell + gap)
+
+              fill = colors.get(level, colors[0])
+
+              opacity = "1"
+
+              svg += f'''
+              <rect
+                x="{x}"
+                y="{y}"
+                width="{cell}"
+                height="{cell}"
+                rx="3"
+                fill="{fill}"
+                opacity="{opacity}"
+                stroke="#172033"
+                stroke-width="1">
+                <title>{date_string} — level {level}</title>
+              </rect>
+              '''
+
+          # Animated scanning line
+          svg += f'''
+          <rect
+            x="{start_x}"
+            y="{start_y-8}"
+            width="3"
+            height="118"
+            fill="#22D3EE"
+            opacity="0.7"
+            filter="url(#glow)">
+            <animate
+              attributeName="x"
+              from="{start_x}"
+              to="{start_x + 900}"
+              dur="5s"
+              repeatCount="indefinite"/>
+          </rect>
+
+          <!-- Legend -->
+          <text x="55" y="190"
+                class="mono"
+                font-size="11"
+                fill="#64748B">
+            LESS
+          </text>
+          '''
+
+          legend_x = 95
+
+          for i in range(5):
+              svg += f'''
+              <rect
+                x="{legend_x + i*25}"
+                y="181"
+                width="15"
+                height="15"
+                rx="3"
+                fill="{colors[i]}"/>
+              '''
+
+          svg += f'''
+          <text x="{legend_x + 5*25 + 5}" y="192"
+                class="mono"
+                font-size="11"
+                fill="#64748B">
+            MORE
+          </text>
+
+          <!-- Footer -->
+          <text x="55" y="225"
+                class="mono"
+                font-size="11"
+                fill="#475569">
+            SOURCE
+          </text>
+
+          <text x="115" y="225"
+                class="mono"
+                font-size="11"
+                fill="#94A3B8">
+            github.com/{USERNAME}
+          </text>
+
+          <text x="1045" y="225"
+                text-anchor="end"
+                class="mono"
+                font-size="11"
+                fill="#475569">
+            AUTO-SYNC
+          </text>
+
+          </svg>
+          '''
+
+          with open("assets/contributions.svg", "w", encoding="utf-8") as file:
+              file.write(svg)
+
+          print("Contribution SVG generated successfully.")
+
+          PY
+
+      - name: Commit updated contribution matrix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/contributions.svg
+
+          if git diff --cached --quiet; then
+            echo "No contribution changes."
+          else
+            git commit -m "Update GitHub contribution matrix"
+            git push
+          fi
