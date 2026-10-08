@@ -16,15 +16,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch real GitHub contributions
+      - name: Fetch and generate contribution matrix
         run: |
           python - <<'PY'
           import urllib.request
           import re
-          from datetime import datetime
+          from datetime import datetime, timedelta
 
           USERNAME = "fardeenkhan786786"
           URL = f"https://github.com/users/{USERNAME}/contributions"
+
+          print("Fetching GitHub contribution data...")
 
           request = urllib.request.Request(
               URL,
@@ -33,33 +35,60 @@ jobs:
               }
           )
 
-          html = urllib.request.urlopen(request).read().decode("utf-8")
+          with urllib.request.urlopen(request) as response:
+              html = response.read().decode("utf-8")
 
-          pattern = re.compile(
-              r'<td[^>]*data-date="([^"]+)"[^>]*data-level="([0-4])"[^>]*>'
+          # Find every contribution cell.
+          cells = re.findall(
+              r'<td\b[^>]*class="[^"]*ContributionCalendar-day[^"]*"[^>]*>',
+              html
           )
 
-          matches = pattern.findall(html)
+          contributions = []
 
-          if not matches:
-              raise SystemExit("Could not find GitHub contribution data.")
+          for cell in cells:
+              date_match = re.search(
+                  r'data-date="([^"]+)"',
+                  cell
+              )
 
-          print(f"Found {len(matches)} contribution cells.")
+              level_match = re.search(
+                  r'data-level="([0-4])"',
+                  cell
+              )
 
-          # Convert to dictionary
-          contributions = {
-              date: int(level)
-              for date, level in matches
-          }
+              if date_match and level_match:
+                  contributions.append({
+                      "date": date_match.group(1),
+                      "level": int(level_match.group(1))
+                  })
 
-          # Generate futuristic SVG
+          if not contributions:
+              raise SystemExit(
+                  "ERROR: No contribution cells were found."
+              )
+
+          print(
+              f"Found {len(contributions)} contribution days."
+          )
+
+          # Sort by date.
+          contributions.sort(
+              key=lambda item: item["date"]
+          )
+
+          # ---------------------------------------------------------
+          # SVG SETTINGS
+          # ---------------------------------------------------------
+
           width = 1100
-          height = 390
+          height = 330
 
-          cell = 13
+          cell_size = 13
           gap = 5
+
           start_x = 55
-          start_y = 70
+          start_y = 80
 
           colors = {
               0: "#111827",
@@ -69,200 +98,310 @@ jobs:
               4: "#22D3EE"
           }
 
-          svg = f'''<svg xmlns="http://www.w3.org/2000/svg"
+          svg = f'''<svg
+          xmlns="http://www.w3.org/2000/svg"
           width="{width}"
           height="{height}"
           viewBox="0 0 {width} {height}">
 
           <defs>
 
-            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#050816"/>
-              <stop offset="50%" stop-color="#0B1025"/>
-              <stop offset="100%" stop-color="#12051F"/>
+            <linearGradient
+              id="bg"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1">
+
+              <stop
+                offset="0%"
+                stop-color="#050816"/>
+
+              <stop
+                offset="50%"
+                stop-color="#0B1025"/>
+
+              <stop
+                offset="100%"
+                stop-color="#12051F"/>
+
             </linearGradient>
 
-            <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#22D3EE"/>
-              <stop offset="50%" stop-color="#818CF8"/>
-              <stop offset="100%" stop-color="#F472B6"/>
+            <linearGradient
+              id="title"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="0">
+
+              <stop
+                offset="0%"
+                stop-color="#22D3EE"/>
+
+              <stop
+                offset="50%"
+                stop-color="#818CF8"/>
+
+              <stop
+                offset="100%"
+                stop-color="#F472B6"/>
+
             </linearGradient>
 
             <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
+
+              <feGaussianBlur
+                stdDeviation="3"
+                result="blur"/>
+
               <feMerge>
+
                 <feMergeNode in="blur"/>
                 <feMergeNode in="SourceGraphic"/>
+
               </feMerge>
+
             </filter>
 
             <style>
               .mono {{
-                font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+                font-family:
+                  "SFMono-Regular",
+                  Consolas,
+                  "Liberation Mono",
+                  monospace;
               }}
             </style>
 
           </defs>
 
-          <!-- Background -->
-          <rect width="100%" height="100%" rx="24" fill="url(#bg)"/>
+          <!-- BACKGROUND -->
 
-          <!-- Border -->
-          <rect x="1" y="1"
-                width="{width-2}"
-                height="{height-2}"
-                rx="24"
-                fill="none"
-                stroke="#24304A"
-                stroke-width="2"/>
+          <rect
+            width="100%"
+            height="100%"
+            rx="24"
+            fill="url(#bg)"/>
 
-          <!-- Header -->
-          <text x="45" y="38"
-                class="mono"
-                font-size="17"
-                font-weight="700"
-                fill="url(#title)">
+          <!-- BORDER -->
+
+          <rect
+            x="1"
+            y="1"
+            width="{width-2}"
+            height="{height-2}"
+            rx="24"
+            fill="none"
+            stroke="#24304A"
+            stroke-width="2"/>
+
+          <!-- HEADER -->
+
+          <text
+            x="45"
+            y="42"
+            class="mono"
+            font-size="17"
+            font-weight="700"
+            fill="url(#title)">
+
             GITHUB // ACTIVITY MATRIX
+
           </text>
 
-          <text x="1050" y="38"
-                text-anchor="end"
-                class="mono"
-                font-size="11"
-                fill="#64748B">
-            LIVE DATA
+          <text
+            x="1050"
+            y="42"
+            text-anchor="end"
+            class="mono"
+            font-size="11"
+            fill="#64748B">
+
+            REAL DATA
+
           </text>
 
-          <!-- Matrix -->
+          <!-- CONTRIBUTION GRID -->
           '''
 
-          # GitHub calendar = Sunday -> Saturday
-          # Find first Sunday in the displayed data.
-          dates = sorted(contributions.keys())
+          # ---------------------------------------------------------
+          # BUILD GRID
+          # ---------------------------------------------------------
 
-          first_date = datetime.strptime(dates[0], "%Y-%m-%d").date()
+          first_date = datetime.strptime(
+              contributions[0]["date"],
+              "%Y-%m-%d"
+          ).date()
 
-          # Shift to Sunday
+          # GitHub weeks begin on Sunday.
           first_sunday = first_date
 
           while first_sunday.weekday() != 6:
-              from datetime import timedelta
               first_sunday -= timedelta(days=1)
 
-          from datetime import timedelta
-
-          for date_string, level in contributions.items():
+          for item in contributions:
 
               date = datetime.strptime(
-                  date_string,
+                  item["date"],
                   "%Y-%m-%d"
               ).date()
 
-              days = (date - first_sunday).days
+              level = item["level"]
 
-              column = days // 7
-              row = days % 7
+              days_from_start = (
+                  date - first_sunday
+              ).days
 
-              x = start_x + column * (cell + gap)
-              y = start_y + row * (cell + gap)
+              column = days_from_start // 7
+              row = days_from_start % 7
 
-              fill = colors.get(level, colors[0])
+              x = (
+                  start_x
+                  + column * (cell_size + gap)
+              )
 
-              opacity = "1"
+              y = (
+                  start_y
+                  + row * (cell_size + gap)
+              )
+
+              fill = colors[level]
 
               svg += f'''
               <rect
                 x="{x}"
                 y="{y}"
-                width="{cell}"
-                height="{cell}"
+                width="{cell_size}"
+                height="{cell_size}"
                 rx="3"
                 fill="{fill}"
-                opacity="{opacity}"
                 stroke="#172033"
                 stroke-width="1">
-                <title>{date_string} — level {level}</title>
+
+                <title>
+                  {item["date"]} — contribution level {level}
+                </title>
+
               </rect>
               '''
 
-          # Animated scanning line
+          # ---------------------------------------------------------
+          # SCAN ANIMATION
+          # ---------------------------------------------------------
+
           svg += f'''
+
           <rect
             x="{start_x}"
-            y="{start_y-8}"
+            y="{start_y - 8}"
             width="3"
-            height="118"
+            height="120"
             fill="#22D3EE"
-            opacity="0.7"
+            opacity="0.75"
             filter="url(#glow)">
+
             <animate
               attributeName="x"
               from="{start_x}"
-              to="{start_x + 900}"
-              dur="5s"
+              to="{start_x + 950}"
+              dur="6s"
               repeatCount="indefinite"/>
+
           </rect>
 
-          <!-- Legend -->
-          <text x="55" y="190"
-                class="mono"
-                font-size="11"
-                fill="#64748B">
+          <!-- LEGEND -->
+
+          <text
+            x="55"
+            y="215"
+            class="mono"
+            font-size="11"
+            fill="#64748B">
+
             LESS
+
           </text>
           '''
 
           legend_x = 95
 
           for i in range(5):
+
               svg += f'''
+
               <rect
-                x="{legend_x + i*25}"
-                y="181"
+                x="{legend_x + i * 25}"
+                y="205"
                 width="15"
                 height="15"
                 rx="3"
                 fill="{colors[i]}"/>
+
               '''
 
           svg += f'''
-          <text x="{legend_x + 5*25 + 5}" y="192"
-                class="mono"
-                font-size="11"
-                fill="#64748B">
+
+          <text
+            x="{legend_x + 5 * 25 + 5}"
+            y="216"
+            class="mono"
+            font-size="11"
+            fill="#64748B">
+
             MORE
+
           </text>
 
-          <!-- Footer -->
-          <text x="55" y="225"
-                class="mono"
-                font-size="11"
-                fill="#475569">
+          <!-- FOOTER -->
+
+          <text
+            x="55"
+            y="275"
+            class="mono"
+            font-size="11"
+            fill="#475569">
+
             SOURCE
+
           </text>
 
-          <text x="115" y="225"
-                class="mono"
-                font-size="11"
-                fill="#94A3B8">
+          <text
+            x="115"
+            y="275"
+            class="mono"
+            font-size="11"
+            fill="#94A3B8">
+
             github.com/{USERNAME}
+
           </text>
 
-          <text x="1045" y="225"
-                text-anchor="end"
-                class="mono"
-                font-size="11"
-                fill="#475569">
+          <text
+            x="1045"
+            y="275"
+            text-anchor="end"
+            class="mono"
+            font-size="11"
+            fill="#475569">
+
             AUTO-SYNC
+
           </text>
 
           </svg>
           '''
 
-          with open("assets/contributions.svg", "w", encoding="utf-8") as file:
+          with open(
+              "assets/contributions.svg",
+              "w",
+              encoding="utf-8"
+          ) as file:
+
               file.write(svg)
 
-          print("Contribution SVG generated successfully.")
+          print(
+              "Contribution SVG generated successfully."
+          )
 
           PY
 
