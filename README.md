@@ -10,4 +10,8 @@
 
 <img src="./assets/contributions.svg" width="100%" />
 
+<br>
+
+<img src="./assets/projects.svg" width="100%" />
+
 </div>
