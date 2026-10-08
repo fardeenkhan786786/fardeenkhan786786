@@ -18,4 +18,7 @@
 
 <img src="./assets/stack.svg" width="100%" />
 
+<br> 
+
+<img src="./assets/about.svg" width="100%" />
 </div>

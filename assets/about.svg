@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430">
+
+<rect width="1100" height="430" fill="#080b14"/>
+
+<!-- Header -->
+<text x="50" y="55"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+  ABOUT ME // SYSTEM PROFILE
+</text>
+
+<text x="50" y="82"
+      fill="#7c8aa5"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  DEVELOPER PROFILE • CURRENT OBJECTIVES • SYSTEM STATUS
+</text>
+
+<!-- Identity Card -->
+<rect x="40" y="115" width="500" height="270"
+      rx="18"
+      fill="#101624"
+      stroke="#22d3ee"
+      stroke-width="1"/>
+
+<text x="70" y="150"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">
+  IDENTITY
+</text>
+
+<text x="70" y="190"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+  FARDEEN KHAN
+</text>
+
+<text x="70" y="218"
+      fill="#8c9ab5"
+      font-family="Arial, sans-serif"
+      font-size="14">
+  AI / ML ENGINEER • DEVELOPER
+</text>
+
+<text x="70" y="260"
+      fill="#c4cede"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  Building intelligent systems,
+</text>
+
+<text x="70" y="282"
+      fill="#c4cede"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  experimenting with AI,
+</text>
+
+<text x="70" y="304"
+      fill="#c4cede"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  and creating digital experiences.
+</text>
+
+<rect x="70" y="335" width="115" height="28"
+      rx="14"
+      fill="#142531"/>
+
+<text x="127" y="354"
+      text-anchor="middle"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="11">
+  SYSTEM ONLINE
+</text>
+
+
+<!-- Objectives Card -->
+<rect x="560" y="115" width="500" height="270"
+      rx="18"
+      fill="#101624"
+      stroke="#8b5cf6"
+      stroke-width="1"/>
+
+<text x="590" y="150"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">
+  CURRENT OBJECTIVES
+</text>
+
+<!-- Objective 1 -->
+<circle cx="600" cy="190" r="5" fill="#22d3ee"/>
+
+<text x="620" y="195"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+  BUILD
+</text>
+
+<text x="700" y="195"
+      fill="#7f8ca6"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  AI &amp; ML projects
+</text>
+
+<!-- Objective 2 -->
+<circle cx="600" cy="235" r="5" fill="#8b5cf6"/>
+
+<text x="620" y="240"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+  LEARN
+</text>
+
+<text x="700" y="240"
+      fill="#7f8ca6"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  DSA &amp; advanced AI
+</text>
+
+<!-- Objective 3 -->
+<circle cx="600" cy="280" r="5" fill="#ec4899"/>
+
+<text x="620" y="285"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+  CREATE
+</text>
+
+<text x="700" y="285"
+      fill="#7f8ca6"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  useful digital products
+</text>
+
+<!-- Objective 4 -->
+<circle cx="600" cy="325" r="5" fill="#22d3ee"/>
+
+<text x="620" y="330"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+  EXPLORE
+</text>
+
+<text x="700" y="330"
+      fill="#7f8ca6"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  new technologies
+</text>
+
+<!-- Footer -->
+<text x="50" y="412"
+      fill="#53617a"
+      font-family="Arial, sans-serif"
+      font-size="11">
+  FARDEEN // BUILD • LEARN • CREATE
+</text>
+
+</svg>
