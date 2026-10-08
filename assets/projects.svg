@@ -1,560 +1,215 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="1100"
-     height="520"
-     viewBox="0 0 1100 520">
-
-  <defs>
-
-    <linearGradient id="bg"
-      x1="0" y1="0"
-      x2="1" y2="1">
-
-      <stop offset="0%" stop-color="#050816"/>
-      <stop offset="50%" stop-color="#0B1025"/>
-      <stop offset="100%" stop-color="#12051F"/>
-
-    </linearGradient>
-
-    <linearGradient id="title"
-      x1="0" y1="0"
-      x2="1" y2="0">
-
-      <stop offset="0%" stop-color="#22D3EE"/>
-      <stop offset="50%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#F472B6"/>
-
-    </linearGradient>
-
-    <linearGradient id="card1"
-      x1="0" y1="0"
-      x2="1" y2="1">
-
-      <stop offset="0%" stop-color="#0B2030"/>
-      <stop offset="100%" stop-color="#11152D"/>
-
-    </linearGradient>
-
-    <linearGradient id="card2"
-      x1="0" y1="0"
-      x2="1" y2="1">
-
-      <stop offset="0%" stop-color="#121530"/>
-      <stop offset="100%" stop-color="#21112E"/>
-
-    </linearGradient>
-
-    <linearGradient id="card3"
-      x1="0" y1="0"
-      x2="1" y2="1">
-
-      <stop offset="0%" stop-color="#091F28"/>
-      <stop offset="100%" stop-color="#15152F"/>
-
-    </linearGradient>
-
-    <filter id="glow">
-      <feGaussianBlur
-        stdDeviation="4"
-        result="blur"/>
-
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-
-    </filter>
-
-    <style>
-      .mono {
-        font-family:
-          "SFMono-Regular",
-          Consolas,
-          "Liberation Mono",
-          monospace;
-      }
-
-      .sans {
-        font-family:
-          Arial,
-          Helvetica,
-          sans-serif;
-      }
-    </style>
-
-  </defs>
-
-  <!-- BACKGROUND -->
-
-  <rect
-    width="1100"
-    height="520"
-    rx="26"
-    fill="url(#bg)"/>
-
-  <!-- BORDER -->
-
-  <rect
-    x="1"
-    y="1"
-    width="1098"
-    height="518"
-    rx="26"
-    fill="none"
-    stroke="#26304A"
-    stroke-width="2"/>
-
-  <!-- HEADER -->
-
-  <text
-    x="45"
-    y="48"
-    class="mono"
-    font-size="18"
-    font-weight="700"
-    fill="url(#title)">
-
-    PROJECTS // FEATURED SYSTEMS
-
-  </text>
-
-  <text
-    x="1050"
-    y="48"
-    text-anchor="end"
-    class="mono"
-    font-size="11"
-    fill="#64748B">
-
-    03 SYSTEMS
-
-  </text>
-
-  <!-- CARD 1 -->
-
-  <rect
-    x="40"
-    y="85"
-    width="325"
-    height="350"
-    rx="20"
-    fill="url(#card1)"
-    stroke="#1E5264"
-    stroke-width="1.5"/>
-
-  <circle
-    cx="70"
-    cy="120"
-    r="7"
-    fill="#22D3EE"
-    filter="url(#glow)"/>
-
-  <text
-    x="90"
-    y="126"
-    class="mono"
-    font-size="11"
-    fill="#22D3EE">
-
-    SYSTEM_01
-
-  </text>
-
-  <text
-    x="65"
-    y="175"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    CUSTOMER CHURN
-
-  </text>
-
-  <text
-    x="65"
-    y="205"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    PREDICTION
-
-  </text>
-
-  <text
-    x="65"
-    y="245"
-    class="mono"
-    font-size="12"
-    fill="#94A3B8">
-
-    MACHINE LEARNING
-
-  </text>
-
-  <text
-    x="65"
-    y="275"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    Predict customer churn using
-
-  </text>
-
-  <text
-    x="65"
-    y="297"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    data-driven ML models.
-
-  </text>
-
-  <rect
-    x="65"
-    y="345"
-    width="90"
-    height="30"
-    rx="15"
-    fill="#123B4A"/>
-
-  <text
-    x="110"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#22D3EE">
-
-    PYTHON
-
-  </text>
-
-  <rect
-    x="165"
-    y="345"
-    width="105"
-    height="30"
-    rx="15"
-    fill="#172554"/>
-
-  <text
-    x="217"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#818CF8">
-
-    SCIKIT-LEARN
-
-  </text>
-
-  <text
-    x="65"
-    y="410"
-    class="mono"
-    font-size="11"
-    fill="#22D3EE">
-
-    VIEW PROJECT →
-
-  </text>
-
-  <!-- CARD 2 -->
-
-  <rect
-    x="387"
-    y="85"
-    width="325"
-    height="350"
-    rx="20"
-    fill="url(#card2)"
-    stroke="#55315D"
-    stroke-width="1.5"/>
-
-  <circle
-    cx="417"
-    cy="120"
-    r="7"
-    fill="#818CF8"
-    filter="url(#glow)"/>
-
-  <text
-    x="437"
-    y="126"
-    class="mono"
-    font-size="11"
-    fill="#818CF8">
-
-    SYSTEM_02
-
-  </text>
-
-  <text
-    x="412"
-    y="175"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    AI CHATBOT
-
-  </text>
-
-  <text
-    x="412"
-    y="205"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    PLATFORM
-
-  </text>
-
-  <text
-    x="412"
-    y="245"
-    class="mono"
-    font-size="12"
-    fill="#94A3B8">
-
-    AI / WEB DEVELOPMENT
-
-  </text>
-
-  <text
-    x="412"
-    y="275"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    Intelligent conversational
-
-  </text>
-
-  <text
-    x="412"
-    y="297"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    experience for everyone.
-
-  </text>
-
-  <rect
-    x="412"
-    y="345"
-    width="75"
-    height="30"
-    rx="15"
-    fill="#172554"/>
-
-  <text
-    x="449"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#818CF8">
-
-    AI
-
-  </text>
-
-  <rect
-    x="497"
-    y="345"
-    width="80"
-    height="30"
-    rx="15"
-    fill="#3B174F"/>
-
-  <text
-    x="537"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#F472B6">
-
-    WEB
-
-  </text>
-
-  <text
-    x="412"
-    y="410"
-    class="mono"
-    font-size="11"
-    fill="#818CF8">
-
-    VIEW PROJECT →
-
-  </text>
-
-  <!-- CARD 3 -->
-
-  <rect
-    x="734"
-    y="85"
-    width="325"
-    height="350"
-    rx="20"
-    fill="url(#card3)"
-    stroke="#24505B"
-    stroke-width="1.5"/>
-
-  <circle
-    cx="764"
-    cy="120"
-    r="7"
-    fill="#F472B6"
-    filter="url(#glow)"/>
-
-  <text
-    x="784"
-    y="126"
-    class="mono"
-    font-size="11"
-    fill="#F472B6">
-
-    SYSTEM_03
-
-  </text>
-
-  <text
-    x="759"
-    y="175"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    AI / ML
-
-  </text>
-
-  <text
-    x="759"
-    y="205"
-    class="sans"
-    font-size="25"
-    font-weight="700"
-    fill="#F8FAFC">
-
-    PROJECTS
-
-  </text>
-
-  <text
-    x="759"
-    y="245"
-    class="mono"
-    font-size="12"
-    fill="#94A3B8">
-
-    EXPERIMENTAL LAB
-
-  </text>
-
-  <text
-    x="759"
-    y="275"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    Exploring intelligent systems,
-
-  </text>
-
-  <text
-    x="759"
-    y="297"
-    class="sans"
-    font-size="13"
-    fill="#CBD5E1">
-
-    automation & new ideas.
-
-  </text>
-
-  <rect
-    x="759"
-    y="345"
-    width="75"
-    height="30"
-    rx="15"
-    fill="#123B4A"/>
-
-  <text
-    x="796"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#22D3EE">
-
-    PYTHON
-
-  </text>
-
-  <rect
-    x="844"
-    y="345"
-    width="75"
-    height="30"
-    rx="15"
-    fill="#3B174F"/>
-
-  <text
-    x="881"
-    y="365"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#F472B6">
-
-    AI
-
-  </text>
-
-  <text
-    x="759"
-    y="410"
-    class="mono"
-    font-size="11"
-    fill="#F472B6">
-
-    VIEW PROJECT →
-
-  </text>
-
-  <!-- FOOTER -->
-
-  <text
-    x="550"
-    y="475"
-    text-anchor="middle"
-    class="mono"
-    font-size="10"
-    fill="#475569">
-
-    BUILD • EXPERIMENT • ITERATE • SHIP
-
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="500" viewBox="0 0 1100 500">
+
+<rect width="1100" height="500" fill="#080b14"/>
+
+<text x="50" y="55"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+  PROJECTS // AI LAB
+</text>
+
+<text x="50" y="82"
+      fill="#7c8aa5"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  SELECTED SYSTEMS &amp; EXPERIMENTS
+</text>
+
+<!-- Project 1 -->
+<rect x="40" y="115" width="320" height="320"
+      rx="18"
+      fill="#101624"
+      stroke="#22d3ee"
+      stroke-width="1"/>
+
+<text x="65" y="155"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+  SYSTEM_01
+</text>
+
+<text x="65" y="195"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  CUSTOMER
+</text>
+
+<text x="65" y="223"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  CHURN
+</text>
+
+<text x="65" y="251"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  PREDICTION
+</text>
+
+<text x="65" y="290"
+      fill="#8c9ab5"
+      font-family="Arial, sans-serif"
+      font-size="14">
+  Machine Learning
+</text>
+
+<rect x="65" y="325" width="85" height="30" rx="15"
+      fill="#172235"/>
+
+<text x="107" y="345"
+      text-anchor="middle"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  Python
+</text>
+
+<rect x="160" y="325" width="110" height="30" rx="15"
+      fill="#172235"/>
+
+<text x="215" y="345"
+      text-anchor="middle"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  Scikit-learn
+</text>
+
+<!-- Project 2 -->
+<rect x="390" y="115" width="320" height="320"
+      rx="18"
+      fill="#101624"
+      stroke="#8b5cf6"
+      stroke-width="1"/>
+
+<text x="415" y="155"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+  SYSTEM_02
+</text>
+
+<text x="415" y="195"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  AI CHATBOT
+</text>
+
+<text x="415" y="223"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  PLATFORM
+</text>
+
+<text x="415" y="270"
+      fill="#8c9ab5"
+      font-family="Arial, sans-serif"
+      font-size="14">
+  AI / Web Development
+</text>
+
+<rect x="415" y="305" width="70" height="30" rx="15"
+      fill="#1b1830"/>
+
+<text x="450" y="325"
+      text-anchor="middle"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  AI
+</text>
+
+<rect x="495" y="305" width="75" height="30" rx="15"
+      fill="#1b1830"/>
+
+<text x="532" y="325"
+      text-anchor="middle"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  WEB
+</text>
+
+<!-- Project 3 -->
+<rect x="740" y="115" width="320" height="320"
+      rx="18"
+      fill="#101624"
+      stroke="#ec4899"
+      stroke-width="1"/>
+
+<text x="765" y="155"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+  SYSTEM_03
+</text>
+
+<text x="765" y="195"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  AI / ML
+</text>
+
+<text x="765" y="223"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+  PROJECTS
+</text>
+
+<text x="765" y="270"
+      fill="#8c9ab5"
+      font-family="Arial, sans-serif"
+      font-size="14">
+  Experimental Lab
+</text>
+
+<rect x="765" y="305" width="85" height="30" rx="15"
+      fill="#2a1827"/>
+
+<text x="807" y="325"
+      text-anchor="middle"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  Python
+</text>
+
+<rect x="860" y="305" width="70" height="30" rx="15"
+      fill="#2a1827"/>
+
+<text x="895" y="325"
+      text-anchor="middle"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="12">
+  AI
+</text>
+
+<text x="50" y="475"
+      fill="#53617a"
+      font-family="Arial, sans-serif"
+      font-size="11">
+  FARDEEN // BUILDING INTELLIGENT SYSTEMS
+</text>
 
 </svg>
