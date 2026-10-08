@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+
+<rect width="1100" height="560" fill="#080b14"/>
+
+<!-- Header -->
+<text x="50" y="55"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+  TECH STACK // ARSENAL
+</text>
+
+<text x="50" y="82"
+      fill="#7c8aa5"
+      font-family="Arial, sans-serif"
+      font-size="13">
+  LANGUAGES • AI / ML • DEVELOPMENT • TOOLS
+</text>
+
+<!-- Python -->
+<rect x="40" y="115" width="240" height="100" rx="15"
+      fill="#101624" stroke="#22d3ee"/>
+
+<text x="65" y="148"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">01</text>
+
+<text x="65" y="180"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">PYTHON</text>
+
+<text x="65" y="200"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="11">Programming Language</text>
+
+
+<!-- C / C++ -->
+<rect x="300" y="115" width="240" height="100" rx="15"
+      fill="#101624" stroke="#8b5cf6"/>
+
+<text x="325" y="148"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">02</text>
+
+<text x="325" y="180"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">C / C++</text>
+
+<text x="325" y="200"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="11">Core Programming</text>
+
+
+<!-- Java -->
+<rect x="560" y="115" width="240" height="100" rx="15"
+      fill="#101624" stroke="#ec4899"/>
+
+<text x="585" y="148"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">03</text>
+
+<text x="585" y="180"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">JAVA</text>
+
+<text x="585" y="200"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="11">Object-Oriented Programming</text>
+
+
+<!-- SQL -->
+<rect x="820" y="115" width="240" height="100" rx="15"
+      fill="#101624" stroke="#22d3ee"/>
+
+<text x="845" y="148"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">04</text>
+
+<text x="845" y="180"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">SQL</text>
+
+<text x="845" y="200"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="11">Database Management</text>
+
+
+<!-- Machine Learning -->
+<rect x="40" y="235" width="320" height="115" rx="15"
+      fill="#101624" stroke="#8b5cf6"/>
+
+<text x="65" y="270"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">05</text>
+
+<text x="65" y="302"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">MACHINE LEARNING</text>
+
+<text x="65" y="327"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">Scikit-learn • Model Building</text>
+
+
+<!-- AI -->
+<rect x="390" y="235" width="320" height="115" rx="15"
+      fill="#101624" stroke="#ec4899"/>
+
+<text x="415" y="270"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">06</text>
+
+<text x="415" y="302"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">AI / ML</text>
+
+<text x="415" y="327"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">Artificial Intelligence</text>
+
+
+<!-- Data -->
+<rect x="740" y="235" width="320" height="115" rx="15"
+      fill="#101624" stroke="#22d3ee"/>
+
+<text x="765" y="270"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">07</text>
+
+<text x="765" y="302"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">DATA TOOLS</text>
+
+<text x="765" y="327"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">NumPy • Pandas • Matplotlib</text>
+
+
+<!-- Web -->
+<rect x="40" y="370" width="320" height="115" rx="15"
+      fill="#101624" stroke="#ec4899"/>
+
+<text x="65" y="405"
+      fill="#f472b6"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">08</text>
+
+<text x="65" y="437"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">WEB</text>
+
+<text x="65" y="462"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">HTML • CSS • JavaScript</text>
+
+
+<!-- Git -->
+<rect x="390" y="370" width="320" height="115" rx="15"
+      fill="#101624" stroke="#8b5cf6"/>
+
+<text x="415" y="405"
+      fill="#a78bfa"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">09</text>
+
+<text x="415" y="437"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">GIT / GITHUB</text>
+
+<text x="415" y="462"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">Version Control • Collaboration</text>
+
+
+<!-- Tools -->
+<rect x="740" y="370" width="320" height="115" rx="15"
+      fill="#101624" stroke="#22d3ee"/>
+
+<text x="765" y="405"
+      fill="#22d3ee"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">10</text>
+
+<text x="765" y="437"
+      fill="#ffffff"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">TOOLS</text>
+
+<text x="765" y="462"
+      fill="#71809b"
+      font-family="Arial, sans-serif"
+      font-size="12">VS Code • Jupyter • Git</text>
+
+
+<!-- Footer -->
+<text x="50" y="525"
+      fill="#53617a"
+      font-family="Arial, sans-serif"
+      font-size="11">
+  FARDEEN // LEARN • BUILD • DEPLOY
+</text>
+
+</svg>
